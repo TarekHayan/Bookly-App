@@ -1,0 +1,25 @@
+import 'package:bookly_app/futures/home/ui/widgets/cover_books.dart';
+import 'package:flutter/material.dart';
+
+class ListViewCoverBooksItems extends StatelessWidget {
+  const ListViewCoverBooksItems({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * 0.3,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (context, index) {
+            return const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 3),
+              child: CoverBooks(),
+            );
+          },
+        ),
+      ),
+    );
+  }
+}
