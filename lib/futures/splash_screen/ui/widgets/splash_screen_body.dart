@@ -61,7 +61,7 @@ class _SplashScreenBodyState extends State<SplashScreenBody>
   }
 
   void navigatorToHome() {
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 3), () {
       Get.to(const HomePage(), transition: Transition.fade);
     });
   }
