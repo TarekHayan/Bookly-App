@@ -12,7 +12,7 @@ class ListViewCoverBooksItems extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
           return const Padding(
-            padding: EdgeInsets.symmetric(horizontal: 3),
+            padding: EdgeInsets.symmetric(horizontal: 15),
             child: CoverBooks(),
           );
         },
