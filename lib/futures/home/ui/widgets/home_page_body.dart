@@ -10,20 +10,27 @@ class HomePageBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        CustomAppBar(),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 30),
-          child: ListViewCoverBooksItems(),
+    return CustomScrollView(
+      slivers: [
+        const SliverToBoxAdapter(child: CustomAppBar()),
+        // horizintal scroll
+        const SliverToBoxAdapter(child: ListViewCoverBooksItems()),
+
+        const SliverToBoxAdapter(child: SizedBox(height: 25)),
+        // Title
+        const SliverToBoxAdapter(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 30, vertical: 25),
+            child: Text("Best Seller", style: Styles.textStyle18),
+          ),
         ),
-        SizedBox(height: 25),
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 25),
-          child: Text("Best Seller", style: Styles.textStyle18),
+
+        SliverList(
+          delegate: SliverChildBuilderDelegate(
+            (context, index) => const BestSellerView(),
+            childCount: 10,
+          ),
         ),
-        BestSellerView(),
       ],
     );
   }
