@@ -1,4 +1,3 @@
-import 'package:bookly_app/constens.dart';
 import 'package:bookly_app/core/utils/styles.dart';
 import 'package:bookly_app/futures/home/ui/widgets/best_seller_view.dart';
 import 'package:bookly_app/futures/home/ui/widgets/custom_app_bar.dart';
