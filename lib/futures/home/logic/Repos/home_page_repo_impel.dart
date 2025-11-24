@@ -31,7 +31,22 @@ class HomePageRepoImpel implements HomeRepo {
   }
 
   @override
-  Future<Either<FauliarError, List<BookModel>>> fetchFeatureBooks() {
-    throw UnimplementedError();
+  Future<Either<FauliarError, List<BookModel>>> fetchFeatureBooks() async {
+    try {
+      var data = await apiServices.get(
+        endPoint: 'volumes?q=programming&filter=free-ebooks&maxResults=40',
+      );
+      List<BookModel> books = [];
+      for (var item in data['items']) {
+        books.add(item);
+      }
+      return right(books);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServiceError.fromDioError(e));
+      } else {
+        return left(ServiceError(errorMsg: e.toString()));
+      }
+    }
   }
 }
