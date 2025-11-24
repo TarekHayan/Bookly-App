@@ -1,7 +1,7 @@
-import 'package:bookly_app/futures/home/ui/views/book_deatils_page.dart';
-import 'package:bookly_app/futures/home/ui/views/home_page.dart';
-import 'package:bookly_app/futures/search/ui/views/search_view.dart';
-import 'package:bookly_app/futures/splash_screen/ui/views/splash_screen.dart';
+import 'package:bookly_app/futures/home/presentaion/ui/views/book_deatils_page.dart';
+import 'package:bookly_app/futures/home/presentaion/ui/views/home_page.dart';
+import 'package:bookly_app/futures/search/presentaion/ui/views/search_view.dart';
+import 'package:bookly_app/futures/splash_screen/persentaion/ui/views/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

@@ -1,4 +1,4 @@
-import 'package:bookly_app/futures/home/ui/widgets/cover_books.dart';
+import 'package:bookly_app/futures/home/presentaion/ui/widgets/cover_books.dart';
 import 'package:flutter/material.dart';
 
 class ListViewCoverBooksItems extends StatelessWidget {
