@@ -1,6 +1,6 @@
 import 'package:bookly_app/core/Errors/fauliar_error.dart';
 import 'package:bookly_app/core/utils/api_services.dart';
-import 'package:bookly_app/futures/home/data/Models/book_model/ook_model.dart';
+import 'package:bookly_app/futures/home/data/Models/book_model/book_model.dart';
 import 'package:bookly_app/futures/home/data/Repos/home_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
@@ -13,8 +13,7 @@ class HomePageRepoImpel implements HomeRepo {
   Future<Either<FauliarError, List<BookModel>>> fetchNewestBooks() async {
     try {
       var data = await apiServices.get(
-        endPoint:
-            'volumes?q=programming&filter=free-ebooks&orderBy=newest&maxResults=40',
+        endPoint: 'volumes?q=programming&orderBy=newest&maxResults=40',
       );
       List<BookModel> books = [];
       for (var item in data['items']) {
@@ -34,11 +33,12 @@ class HomePageRepoImpel implements HomeRepo {
   Future<Either<FauliarError, List<BookModel>>> fetchFeatureBooks() async {
     try {
       var data = await apiServices.get(
-        endPoint: 'volumes?q=programming&filter=free-ebooks&maxResults=40',
+        endPoint:
+            'volumes?q=subject:computer+science&orderBy=newest&maxResults=40',
       );
       List<BookModel> books = [];
       for (var item in data['items']) {
-        books.add(item);
+        books.add(BookModel.fromJson(item));
       }
       return right(books);
     } catch (e) {
