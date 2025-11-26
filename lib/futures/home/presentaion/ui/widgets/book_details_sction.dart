@@ -1,6 +1,5 @@
 import 'package:bookly_app/constens.dart';
 import 'package:bookly_app/core/utils/styles.dart';
-import 'package:bookly_app/futures/home/presentaion/ui/widgets/best_seller_view.dart';
 import 'package:bookly_app/futures/home/presentaion/ui/widgets/box_action.dart';
 import 'package:flutter/material.dart';
 
@@ -26,7 +25,7 @@ class BookDetailsSection extends StatelessWidget {
           ),
           const SizedBox(height: 10),
 
-          const Center(child: BookRating()),
+          const Center(child: Text("dsg")),
           const SizedBox(height: 40),
           const BoxActions(),
         ],

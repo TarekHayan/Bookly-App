@@ -1,4 +1,5 @@
 import 'package:bookly_app/core/utils/app_router.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -7,18 +8,13 @@ class CoverBooks extends StatelessWidget {
   final String image;
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 2.7 / 4,
-      child: GestureDetector(
-        onTap: () => context.push(AppRouter.bookDeatailsPage),
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(18),
-            image: DecorationImage(
-              image: NetworkImage(image),
-              fit: BoxFit.cover,
-            ),
-          ),
+    return ClipRRect(
+      borderRadius: BorderRadiusGeometry.circular(12),
+      child: AspectRatio(
+        aspectRatio: 2.8 / 4,
+        child: GestureDetector(
+          onTap: () => context.push(AppRouter.bookDeatailsPage),
+          child: CachedNetworkImage(imageUrl: image, fit: BoxFit.cover),
         ),
       ),
     );

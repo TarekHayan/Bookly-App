@@ -13,11 +13,11 @@ class HomePageRepoImpel implements HomeRepo {
   Future<Either<FauliarError, List<BookModel>>> fetchNewestBooks() async {
     try {
       var data = await apiServices.get(
-        endPoint: 'volumes?q=programming&orderBy=newest&maxResults=40',
+        endPoint: 'volumes?q=subject:programming&orderBy=newest&maxResults=40',
       );
       List<BookModel> books = [];
       for (var item in data['items']) {
-        books.add(item);
+        books.add(BookModel.fromJson(item));
       }
       return right(books);
     } catch (e) {
@@ -33,8 +33,7 @@ class HomePageRepoImpel implements HomeRepo {
   Future<Either<FauliarError, List<BookModel>>> fetchFeatureBooks() async {
     try {
       var data = await apiServices.get(
-        endPoint:
-            'volumes?q=subject:computer+science&orderBy=newest&maxResults=40',
+        endPoint: 'volumes?q=subject:computer&orderBy=newest&maxResults=40',
       );
       List<BookModel> books = [];
       for (var item in data['items']) {

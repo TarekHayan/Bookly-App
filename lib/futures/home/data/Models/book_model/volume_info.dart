@@ -24,6 +24,10 @@ class VolumeInfo extends Equatable {
   final String? infoLink;
   final String? canonicalVolumeLink;
 
+  // ⭐ الجديد:
+  final double? averageRating;
+  final int? ratingsCount;
+
   const VolumeInfo({
     this.title,
     this.authors,
@@ -42,6 +46,8 @@ class VolumeInfo extends Equatable {
     this.previewLink,
     this.infoLink,
     this.canonicalVolumeLink,
+    this.averageRating,
+    this.ratingsCount,
   });
 
   factory VolumeInfo.fromJson(Map<String, dynamic> json) => VolumeInfo(
@@ -72,6 +78,10 @@ class VolumeInfo extends Equatable {
     previewLink: json['previewLink'] as String?,
     infoLink: json['infoLink'] as String?,
     canonicalVolumeLink: json['canonicalVolumeLink'] as String?,
+
+    // ⭐ الجديد:
+    averageRating: (json['averageRating'] as num?)?.toDouble(),
+    ratingsCount: json['ratingsCount'] as int?,
   );
 
   Map<String, dynamic> toJson() => {
@@ -92,12 +102,19 @@ class VolumeInfo extends Equatable {
     'previewLink': previewLink,
     'infoLink': infoLink,
     'canonicalVolumeLink': canonicalVolumeLink,
+
+    // ⭐ الجديد:
+    'averageRating': averageRating,
+    'ratingsCount': ratingsCount,
   };
 
   String get safeThumbnail =>
       imageLinks?.thumbnail ??
       imageLinks?.smallThumbnail ??
       "https://i.imgur.com/J5LVHEL.png";
+
+  double get checkRating => averageRating ?? 0.0;
+  int get checkRatingCount => ratingsCount ?? 0;
 
   @override
   List<Object?> get props {
@@ -119,6 +136,8 @@ class VolumeInfo extends Equatable {
       previewLink,
       infoLink,
       canonicalVolumeLink,
+      averageRating,
+      ratingsCount,
     ];
   }
 }
