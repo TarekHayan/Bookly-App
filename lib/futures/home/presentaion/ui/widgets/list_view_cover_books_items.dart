@@ -1,5 +1,5 @@
 import 'package:bookly_app/core/widgets/erro_text.dart';
-import 'package:bookly_app/core/widgets/loading_widget.dart';
+import 'package:bookly_app/core/widgets/shimmir_loading_horz.dart';
 import 'package:bookly_app/futures/home/presentaion/logic/fetch_featured_books_cubit/fetch_featured_books_cubit.dart';
 import 'package:bookly_app/futures/home/presentaion/ui/widgets/cover_books.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +31,7 @@ class ListViewCoverBooksItems extends StatelessWidget {
         } else if (state is FetchFeaturedBooksFauliar) {
           return ErrorTextWidget(state.errorMsg);
         } else {
-          return const LoadingWidget();
+          return const ShimmerFeaturedBooksHorizontal();
         }
       },
     );
