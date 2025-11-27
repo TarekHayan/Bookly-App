@@ -6,10 +6,9 @@ class ShimmerNewestBooksVirtical extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      padding: EdgeInsets.zero,
-      itemCount: 6,
-      itemBuilder: (context, index) {
+    // التغيير هنا: استخدام Column بدلاً من ListView
+    return Column(
+      children: List.generate(10, (index) {
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
           child: Row(
@@ -17,10 +16,17 @@ class ShimmerNewestBooksVirtical extends StatelessWidget {
               // صورة الكتاب
               Shimmer.fromColors(
                 baseColor: Colors.grey.shade800,
-                highlightColor: Colors.grey.shade700,
-                child: Container(width: 60, height: 90, color: Colors.white),
+                highlightColor: Colors.grey.shade600,
+                child: Container(
+                  width: 70,
+                  height: 105,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
               ),
-              const SizedBox(width: 15),
+              const SizedBox(width: 30),
 
               // النصوص
               Expanded(
@@ -29,21 +35,27 @@ class ShimmerNewestBooksVirtical extends StatelessWidget {
                   children: [
                     Shimmer.fromColors(
                       baseColor: Colors.grey.shade800,
-                      highlightColor: Colors.grey.shade700,
+                      highlightColor: Colors.grey.shade600,
                       child: Container(
                         height: 15,
                         width: double.infinity,
-                        color: Colors.white,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(12),
+                        ),
                       ),
                     ),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: 10),
                     Shimmer.fromColors(
                       baseColor: Colors.grey.shade800,
-                      highlightColor: Colors.grey.shade700,
+                      highlightColor: Colors.grey.shade600,
                       child: Container(
                         height: 15,
-                        width: 150,
-                        color: Colors.white,
+                        width: 100,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(12),
+                        ),
                       ),
                     ),
                   ],
@@ -52,7 +64,7 @@ class ShimmerNewestBooksVirtical extends StatelessWidget {
             ],
           ),
         );
-      },
+      }),
     );
   }
 }

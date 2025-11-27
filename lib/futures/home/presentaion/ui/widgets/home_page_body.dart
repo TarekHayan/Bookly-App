@@ -27,7 +27,7 @@ class HomePageBody extends StatelessWidget {
           ),
         ),
 
-        const SliverFillRemaining(child: NewestBooksListView()),
+        const NewestBooksListView(),
       ],
     );
   }
