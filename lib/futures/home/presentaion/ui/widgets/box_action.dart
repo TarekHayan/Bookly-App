@@ -10,7 +10,7 @@ class BoxActions extends StatelessWidget {
       children: [
         Expanded(
           child: CustomActionButton(
-            text: '19.99€',
+            text: 'Free',
             buttonColor: Colors.white,
             textColor: Colors.black,
             borderRadius: BorderRadius.only(

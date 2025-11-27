@@ -13,7 +13,7 @@ class NewestBooksView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => context.push(AppRouter.bookDeatailsPage),
+      onTap: () => context.push(AppRouter.bookDeatailsPage, extra: bookModel),
       child: SizedBox(
         height: 130,
         child: Row(

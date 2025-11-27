@@ -26,7 +26,7 @@ class NewestBooksListView extends StatelessWidget {
         } else if (state is FetchNewestBooksFauliar) {
           return ErrorTextWidget(state.errorMsg);
         } else {
-          return const ShimmerNewestBooks();
+          return const ShimmerNewestBooksVirtical();
         }
       },
     );

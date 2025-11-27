@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
-class ShimmerNewestBooks extends StatelessWidget {
-  const ShimmerNewestBooks({super.key});
+class ShimmerNewestBooksVirtical extends StatelessWidget {
+  const ShimmerNewestBooksVirtical({super.key});
 
   @override
   Widget build(BuildContext context) {

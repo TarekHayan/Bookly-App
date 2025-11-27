@@ -33,7 +33,30 @@ class HomePageRepoImpel implements HomeRepo {
   Future<Either<FauliarError, List<BookModel>>> fetchFeatureBooks() async {
     try {
       var data = await apiServices.get(
-        endPoint: 'volumes?q=subject:computer&orderBy=newest&maxResults=40',
+        endPoint:
+            'volumes?q=subject:computer science&orderBy=newest&maxResults=40',
+      );
+      List<BookModel> books = [];
+      for (var item in data['items']) {
+        books.add(BookModel.fromJson(item));
+      }
+      return right(books);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServiceError.fromDioError(e));
+      } else {
+        return left(ServiceError(errorMsg: e.toString()));
+      }
+    }
+  }
+
+  @override
+  Future<Either<FauliarError, List<BookModel>>> fetchSimilarBooks({
+    required String category,
+  }) async {
+    try {
+      var data = await apiServices.get(
+        endPoint: 'volumes?q=subject:$category&orderBy=relevance&maxResults=40',
       );
       List<BookModel> books = [];
       for (var item in data['items']) {
