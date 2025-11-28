@@ -22,30 +22,29 @@ abstract class AppRouter {
         builder: (BuildContext context, GoRouterState state) {
           return const SplashScreen();
         },
-        routes: <RouteBase>[
-          GoRoute(
-            path: homePage,
-            builder: (BuildContext context, GoRouterState state) {
-              return const HomePage();
-            },
-          ),
-          GoRoute(
-            path: searchView,
-            builder: (BuildContext context, GoRouterState state) {
-              return const SearchView();
-            },
-          ),
-          GoRoute(
-            path: bookDeatailsPage,
-            builder: (BuildContext context, GoRouterState state) {
-              return BlocProvider(
-                create: (context) =>
-                    FetchSimilarBooksCubit(getIt.get<HomePageRepoImpel>()),
-                child: BookDeatilsPage(bookModel: state.extra as BookModel),
-              );
-            },
-          ),
-        ],
+      ),
+
+      GoRoute(
+        path: homePage,
+        builder: (BuildContext context, GoRouterState state) {
+          return const HomePage();
+        },
+      ),
+      GoRoute(
+        path: searchView,
+        builder: (BuildContext context, GoRouterState state) {
+          return const SearchView();
+        },
+      ),
+      GoRoute(
+        path: bookDeatailsPage,
+        builder: (BuildContext context, GoRouterState state) {
+          return BlocProvider(
+            create: (context) =>
+                FetchSimilarBooksCubit(getIt.get<HomePageRepoImpel>()),
+            child: BookDeatilsPage(bookModel: state.extra as BookModel),
+          );
+        },
       ),
     ],
   );

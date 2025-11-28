@@ -1,3 +1,4 @@
+import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/utils/styles.dart';
 import 'package:bookly_app/core/widgets/erro_text.dart';
 import 'package:bookly_app/core/widgets/shimmir_loading_horz.dart';
@@ -6,6 +7,7 @@ import 'package:bookly_app/futures/home/presentaion/logic/fetch_similar_books_cu
 import 'package:bookly_app/futures/home/presentaion/ui/widgets/cover_books.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class SimilarBookListView extends StatefulWidget {
   const SimilarBookListView({super.key, required this.bookModel});
@@ -17,9 +19,21 @@ class SimilarBookListView extends StatefulWidget {
 class _SimilarBookListViewState extends State<SimilarBookListView> {
   @override
   void initState() {
-    BlocProvider.of<FetchSimilarBooksCubit>(context).fetchSimilarBooks(
-      category: widget.bookModel.volumeInfo?.categories?[0] ?? "Programming",
-    );
+    String category;
+    if (widget.bookModel.volumeInfo!.categories != null &&
+        widget.bookModel.volumeInfo!.categories!.isNotEmpty) {
+      category = widget.bookModel.volumeInfo!.categories![0];
+    } else {
+      // 2. لو مفيش تصنيف، نستخدم اسم الكتاب للبحث بدلاً من كلمة ثابتة
+      category = widget.bookModel.volumeInfo!.title!;
+    }
+
+    // طباعة عشان تتأكد بعينك هو بيبحث عن إيه
+    print("Fetching similar books based on: $category");
+
+    BlocProvider.of<FetchSimilarBooksCubit>(
+      context,
+    ).fetchSimilarBooks(category: category);
     super.initState();
   }
 
@@ -46,8 +60,16 @@ class _SimilarBookListViewState extends State<SimilarBookListView> {
                     itemBuilder: (context, index) {
                       return Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 7.5),
-                        child: CoverBooks(
-                          image: state.books[index].volumeInfo!.safeThumbnail,
+                        child: GestureDetector(
+                          onTap: () {
+                            context.push(
+                              AppRouter.bookDeatailsPage,
+                              extra: state.books[index],
+                            );
+                          },
+                          child: CoverBooks(
+                            image: state.books[index].volumeInfo!.safeThumbnail,
+                          ),
                         ),
                       );
                     },
