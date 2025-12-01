@@ -1,6 +1,6 @@
-import 'package:bookly_app/core/utils/open_book.dart';
-import 'package:bookly_app/core/widgets/custom_action_button.dart';
-import 'package:bookly_app/futures/home/data/Models/book_model/book_model.dart';
+import '../utils/open_book.dart';
+import 'custom_action_button.dart';
+import '../../futures/home/data/Models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
 
 class BoxActions extends StatelessWidget {

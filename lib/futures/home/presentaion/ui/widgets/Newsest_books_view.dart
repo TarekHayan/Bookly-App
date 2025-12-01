@@ -1,8 +1,8 @@
-import 'package:bookly_app/constens.dart';
-import 'package:bookly_app/core/utils/app_router.dart';
-import 'package:bookly_app/core/utils/styles.dart';
-import 'package:bookly_app/futures/home/data/Models/book_model/book_model.dart';
-import 'package:bookly_app/futures/home/presentaion/ui/widgets/cover_books.dart';
+import '../../../../../constens.dart';
+import '../../../../../core/utils/app_router.dart';
+import '../../../../../core/utils/styles.dart';
+import '../../../data/Models/book_model/book_model.dart';
+import 'cover_books.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';

@@ -1,7 +1,7 @@
-import 'package:bookly_app/core/Errors/fauliar_error.dart';
-import 'package:bookly_app/core/utils/api_services.dart';
-import 'package:bookly_app/futures/home/data/Models/book_model/book_model.dart';
-import 'package:bookly_app/futures/home/data/Repos/home_repo.dart';
+import '../../../../core/Errors/fauliar_error.dart';
+import '../../../../core/utils/api_services.dart';
+import '../Models/book_model/book_model.dart';
+import 'home_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 

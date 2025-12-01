@@ -1,8 +1,8 @@
-import 'package:bookly_app/core/utils/app_router.dart';
-import 'package:bookly_app/core/widgets/erro_text.dart';
-import 'package:bookly_app/core/widgets/shimmir_loading_horz.dart';
-import 'package:bookly_app/futures/home/presentaion/logic/fetch_featured_books_cubit/fetch_featured_books_cubit.dart';
-import 'package:bookly_app/futures/home/presentaion/ui/widgets/cover_books.dart';
+import '../../../../../core/utils/app_router.dart';
+import '../../../../../core/widgets/erro_text.dart';
+import '../../../../../core/widgets/shimmir_loading_horz.dart';
+import '../../logic/fetch_featured_books_cubit/fetch_featured_books_cubit.dart';
+import 'cover_books.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';

@@ -1,4 +1,4 @@
-import 'package:bookly_app/core/utils/show_snak_bar.dart';
+import 'show_snak_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 

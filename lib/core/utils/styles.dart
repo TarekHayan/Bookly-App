@@ -1,4 +1,4 @@
-import 'package:bookly_app/constens.dart';
+import '../../constens.dart';
 import 'package:flutter/material.dart';
 
 abstract class Styles {

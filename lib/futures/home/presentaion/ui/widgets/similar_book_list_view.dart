@@ -1,10 +1,10 @@
-import 'package:bookly_app/core/utils/app_router.dart';
-import 'package:bookly_app/core/utils/styles.dart';
-import 'package:bookly_app/core/widgets/erro_text.dart';
-import 'package:bookly_app/core/widgets/shimmir_loading_horz.dart';
-import 'package:bookly_app/futures/home/data/Models/book_model/book_model.dart';
-import 'package:bookly_app/futures/home/presentaion/logic/fetch_similar_books_cubit/fetch_similar_books_cubit.dart';
-import 'package:bookly_app/futures/home/presentaion/ui/widgets/cover_books.dart';
+import '../../../../../core/utils/app_router.dart';
+import '../../../../../core/utils/styles.dart';
+import '../../../../../core/widgets/erro_text.dart';
+import '../../../../../core/widgets/shimmir_loading_horz.dart';
+import '../../../data/Models/book_model/book_model.dart';
+import '../../logic/fetch_similar_books_cubit/fetch_similar_books_cubit.dart';
+import 'cover_books.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -24,12 +24,8 @@ class _SimilarBookListViewState extends State<SimilarBookListView> {
         widget.bookModel.volumeInfo!.categories!.isNotEmpty) {
       category = widget.bookModel.volumeInfo!.categories![0];
     } else {
-      // 2. لو مفيش تصنيف، نستخدم اسم الكتاب للبحث بدلاً من كلمة ثابتة
       category = widget.bookModel.volumeInfo!.title!;
     }
-
-    // طباعة عشان تتأكد بعينك هو بيبحث عن إيه
-    print("Fetching similar books based on: $category");
 
     BlocProvider.of<FetchSimilarBooksCubit>(
       context,
