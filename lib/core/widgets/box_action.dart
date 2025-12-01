@@ -1,7 +1,8 @@
+import 'package:flutter/material.dart';
+
+import '../../futures/home/data/Models/book_model/book_model.dart';
 import '../utils/open_book.dart';
 import 'custom_action_button.dart';
-import '../../futures/home/data/Models/book_model/book_model.dart';
-import 'package:flutter/material.dart';
 
 class BoxActions extends StatelessWidget {
   const BoxActions({super.key, required this.bookModel});

@@ -1,3 +1,7 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
+
 import '../../../../../core/utils/app_router.dart';
 import '../../../../../core/utils/styles.dart';
 import '../../../../../core/widgets/erro_text.dart';
@@ -5,9 +9,6 @@ import '../../../../../core/widgets/shimmir_loading_horz.dart';
 import '../../../data/Models/book_model/book_model.dart';
 import '../../logic/fetch_similar_books_cubit/fetch_similar_books_cubit.dart';
 import 'cover_books.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 
 class SimilarBookListView extends StatefulWidget {
   const SimilarBookListView({super.key, required this.bookModel});

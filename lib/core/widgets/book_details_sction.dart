@@ -1,8 +1,9 @@
-import '../utils/styles.dart';
+import 'package:flutter/material.dart';
+
 import '../../futures/home/data/Models/book_model/book_model.dart';
 import '../../futures/home/presentaion/ui/widgets/newsest_books_view.dart';
+import '../utils/styles.dart';
 import 'box_action.dart';
-import 'package:flutter/material.dart';
 
 class BookDetailsSection extends StatelessWidget {
   const BookDetailsSection({super.key, required this.bookModel});
